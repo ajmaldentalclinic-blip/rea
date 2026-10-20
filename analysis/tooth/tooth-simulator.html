@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tooth Web Simulator — نموذج تفاعلي</title>
+  <style>
+    :root { color-scheme: light; --ink:#19324a; --blue:#176b87; --panel:#fff; --line:#d7e2ea; --soft:#f2f7fa; --active:#e0f3f8; }
+    * { box-sizing:border-box } body { margin:0; min-width:320px; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:#edf3f7 }
+    button,input,select { font:inherit } button { cursor:pointer; border:1px solid #b7c8d4; color:#153a57; background:#fff; border-radius:7px; padding:7px 10px } button:hover:not(:disabled) { background:#eef8fb } button:disabled { opacity:.45; cursor:not-allowed }
+    .top { display:flex; align-items:center; gap:16px; padding:14px clamp(14px,3vw,36px); color:#fff; background:#102d45; flex-wrap:wrap }.title { margin-inline-end:auto }.title h1 { margin:0; font-size:21px }.title small { opacity:.8 }.warning { margin:12px clamp(14px,3vw,36px) 0; padding:10px 14px; border-radius:8px; background:#fff2d7; color:#704d00; font-size:14px }
+    .app { display:grid; grid-template-columns:280px minmax(0,1fr) 250px; gap:14px; padding:14px clamp(14px,3vw,36px) 28px }.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; box-shadow:0 2px 10px #21425b0b }.panel h2 { margin:0 0 11px; font-size:16px }.toolbar { display:flex; gap:7px; flex-wrap:wrap }.toolbar button[aria-pressed="true"] { color:#fff; background:var(--blue); border-color:var(--blue) }
+    .stage-panel { min-width:0; padding:0; overflow:hidden }.stage-head { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border-bottom:1px solid var(--line); background:#fafcfd }.stage-head strong { font-size:14px }.stage-wrap { position:relative; min-height:590px; overflow:hidden; touch-action:none; background-color:#fff; background-image:linear-gradient(#dce7ec 1px, transparent 1px),linear-gradient(90deg,#dce7ec 1px,transparent 1px); background-size:20px 20px }.stage-wrap.grid-off { background-image:none }
+    svg { position:absolute; inset:0; width:100%; height:100%; user-select:none }.tooth { cursor:grab }.tooth.selected .crown { fill:#ffefd0; stroke:#c36b19; stroke-width:2.5 }.crown { fill:#fffdf8; stroke:#305e71; stroke-width:1.5 }.root { fill:#e7f2f3; stroke:#305e71; stroke-width:1.5 }.bracket { fill:#247c9d; stroke:#103f56; stroke-width:1 }.wire { fill:none; stroke:#7b3d79; stroke-width:4; stroke-linecap:round; pointer-events:none }.force { stroke:#e35d33; stroke-width:2; marker-end:url(#arrow) }.wire-label { fill:#643060; font-size:12px; font-weight:700 }.label { fill:#28475d; font-size:12px; font-weight:700; pointer-events:none }.cross { stroke:#8da4b1; stroke-width:1; pointer-events:none }.marker { fill:#e35d33 }
+    .field { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center; padding:7px 0; border-bottom:1px solid #edf1f4; font-size:14px }.field input,.field select { width:112px; border:1px solid #bccbd5; border-radius:6px; padding:5px; color:#16374f; background:#fff }.field input[type="checkbox"] { width:auto; accent-color:var(--blue) }.field:last-child { border:none }.actions { display:grid; gap:8px; margin-top:12px }.status { margin-top:10px; min-height:42px; padding:8px; border-radius:7px; background:var(--soft); font-size:13px; color:#436276 }.legend { margin-top:12px; font-size:12px; color:#607b8c; line-height:1.7 }.modal { position:fixed; inset:0; display:grid; place-items:center; background:#102d457a; padding:18px }.modal[hidden] { display:none }.dialog { width:min(480px,100%); max-height:90vh; overflow:auto; padding:20px; background:#fff; border-radius:12px; box-shadow:0 20px 55px #102d4577 }.dialog h2 { margin-top:0 }.dialog p { line-height:1.75 }.dialog .toolbar { justify-content:flex-start; margin-top:15px }
+    @media (max-width:1000px) { .app { grid-template-columns:250px minmax(0,1fr) }.right { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:14px }.right .panel { min-width:0 } } @media (max-width:700px) { .app { display:flex; flex-direction:column }.right { display:flex; flex-direction:column }.stage-wrap { min-height:460px }.top { align-items:flex-start }.title { order:-1; width:100% } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="title"><h1>Tooth Web Simulator</h1><small>نموذج ويب تفاعلي مستوحى من واجهات Tooth.exe</small></div>
+    <div class="toolbar" aria-label="ملف"><button id="newBtn">جديد</button><button id="saveBtn">حفظ JSON</button><button id="loadBtn">فتح JSON</button><input id="fileInput" type="file" accept="application/json,.json" hidden></div>
+  </header>
+  <p class="warning">نسخة تجريبية للرسم والتفاعل فقط. قيم القوى والحركة هنا توضيحية وليست نموذجاً طبياً أو بديلاً للتحقق السريري.</p>
+  <main class="app">
+    <aside class="left">
+      <section class="panel"><h2>الأدوات</h2><div class="toolbar" id="toolBar"><button data-tool="select" aria-pressed="true">تحديد</button><button data-tool="move">تحريك</button><button data-tool="rotate">دوران</button></div></section>
+      <section class="panel"><h2>إضافة سن</h2><div class="toolbar" id="addTeeth"><button data-number="33">33</button><button data-number="34">34</button><button data-number="35">35</button><button data-number="36">36</button><button data-number="43">43</button><button data-number="44">44</button><button data-number="45">45</button><button data-number="46">46</button></div><div class="actions"><button id="addWire">إضافة سلك للأسنان المحددة</button><button id="removeBtn">حذف المحدد</button></div></section>
+      <section class="panel"><h2>التحكم</h2><div class="toolbar"><button id="undoBtn">تراجع</button><button id="redoBtn">إعادة</button><button id="referenceBtn">حفظ كمرجع</button><button id="resetBtn">العودة للمرجع</button></div></section>
+      <section class="panel"><h2>العرض</h2><label class="field"><span>التكبير</span><select id="zoom"><option value=".75">75%</option><option value="1" selected>100%</option><option value="1.25">125%</option><option value="1.5">150%</option></select></label><label class="field"><span>إظهار الشبكة</span><input id="grid" type="checkbox" checked></label><label class="field"><span>الالتصاق بالشبكة</span><input id="snap" type="checkbox" checked></label><label class="field"><span>إظهار القوى</span><input id="forces" type="checkbox" checked></label></section>
+    </aside>
+    <section class="panel stage-panel">
+      <div class="stage-head"><strong id="stageTitle">مشهد الأسنان</strong><span id="selectionText">لا يوجد تحديد</span></div>
+      <div class="stage-wrap" id="stage"><svg id="canvas" viewBox="0 0 900 590" role="img" aria-label="منطقة رسم محاكاة الأسنان"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e35d33"/></marker></defs><g id="scene"></g></svg></div>
+      <div class="stage-head"><span id="summary">0 أسنان · 0 أسلاك</span><span id="status">جاهز</span></div>
+    </section>
+    <aside class="right">
+      <section class="panel"><h2>خصائص السن</h2><div id="toothFields"><p class="legend">حدد سناً لعرض خصائصه.</p></div></section>
+      <section class="panel"><h2>المحاكاة التجريبية</h2><label class="field"><span>قوة افتراضية</span><input id="forceAmount" type="number" min="0" max="100" value="12"></label><label class="field"><span>إيقاف تلقائي</span><input id="autoStop" type="checkbox" checked></label><div class="toolbar"><button id="runBtn">تشغيل</button><button id="stopBtn" disabled>إيقاف</button></div><div class="status" id="simulationStatus">لا توجد محاكاة نشطة.</div></section>
+      <section class="panel"><h2>ملاحظات</h2><p class="legend">اسحب السن عند اختيار أداة التحريك. عند أداة الدوران اسحب أفقياً لتغيير الزاوية. الحفظ ينتج JSON خاصاً بهذه النسخة فقط.</p></section>
+    </aside>
+  </main>
+  <div class="modal" id="aboutModal" hidden><div class="dialog"><h2>عن هذا النموذج</h2><p>تم بناء الواجهة من التعريفات المستخرجة من Tooth.exe. السلوك التفاعلي والحسابات في هذا الملف مكتوبة من جديد للويب ولم تُستخرج من البرنامج الأصلي.</p><div class="toolbar"><button id="closeAbout">إغلاق</button></div></div></div>
+  <script>
+    const $ = selector => document.querySelector(selector);
+    const scene = $('#scene'), svg = $('#canvas'), stage = $('#stage');
+    const clone = value => JSON.parse(JSON.stringify(value));
+    const state = { teeth: [], wires: [], selected: null, tool: 'select', zoom: 1, grid: true, snap: true, forces: true, reference: null, history: [], future: [], running: false, drag: null, message: 'جاهز' };
+    const defaultTeeth = [
+      ['36', 200, 320], ['35', 300, 315], ['34', 390, 310], ['33', 480, 306], ['43', 570, 306], ['44', 660, 310], ['45', 750, 315], ['46', 840, 320]
+    ];
+    function uid() { return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`; }
+    function tooth(number, x, y) { return { id: uid(), number, x, y, rotation: 0, rootLength: 13, functionalRoot: 11, rootArea: 160, ankylosed: false }; }
+    function snapshot() { return { teeth: clone(state.teeth), wires: clone(state.wires), selected: state.selected, reference: clone(state.reference) }; }
+    function restore(data) { state.teeth = clone(data.teeth || []); state.wires = clone(data.wires || []); state.selected = data.selected || null; state.reference = clone(data.reference || null); }
+    function commit() { state.history.push(snapshot()); if (state.history.length > 80) state.history.shift(); state.future = []; refresh(); }
+    function selectedTooth() { return state.teeth.find(item => item.id === state.selected?.id); }
+    function mm(value) { return Math.round(value * 10) / 10; }
+    function setMessage(text) { state.message = text; $('#status').textContent = text; }
+    function svgEl(name, attrs = {}, text = '') { const el = document.createElementNS('http://www.w3.org/2000/svg', name); Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value)); el.textContent = text; return el; }
+    function toothShape(item) {
+      const g = svgEl('g', { class: `tooth ${state.selected?.type === 'tooth' && state.selected.id === item.id ? 'selected' : ''}`, transform: `translate(${item.x} ${item.y}) rotate(${item.rotation})`, 'data-id': item.id });
+      g.append(svgEl('path', { class: 'root', d: 'M-22 10 C-20 55,-16 83,0 97 C16 83,20 55,22 10 Z' }));
+      g.append(svgEl('path', { class: 'crown', d: 'M-31 -33 Q-17 -48 0 -42 Q17 -48 31 -33 L26 8 Q0 23 -26 8 Z' }));
+      g.append(svgEl('rect', { class: 'bracket', x: -10, y: -4, width: 20, height: 12, rx: 2 }));
+      g.append(svgEl('circle', { class: 'marker', cx: 0, cy: 42, r: 3 }));
+      g.append(svgEl('text', { class: 'label', x: 0, y: -57, 'text-anchor': 'middle' }, item.number));
+      if (state.forces) { const force = Number($('#forceAmount').value) || 0; if (force) g.append(svgEl('line', { class: 'force', x1: 0, y1: 35, x2: Math.min(55, force * 3), y2: 35 })); }
+      return g;
+    }
+    function wireShape(wire) {
+      const points = wire.toothIds.map(id => state.teeth.find(t => t.id === id)).filter(Boolean);
+      if (points.length < 2) return null;
+      const d = points.map((p, i) => `${i ? 'L' : 'M'} ${p.x} ${p.y - 1}`).join(' ');
+      const g = svgEl('g', { class: 'wire-group', 'data-id': wire.id }); g.append(svgEl('path', { class: 'wire', d }));
+      const first = points[0], last = points.at(-1); g.append(svgEl('text', { class: 'wire-label', x: (first.x + last.x) / 2, y: Math.min(...points.map(p => p.y)) - 18, 'text-anchor': 'middle' }, `${wire.material} · ${wire.size}`)); return g;
+    }
+    function render() { scene.replaceChildren(); state.wires.forEach(w => { const el = wireShape(w); if (el) scene.append(el); }); state.teeth.forEach(t => scene.append(toothShape(t))); const selected = selectedTooth(); if (selected) { scene.append(svgEl('line', { class: 'cross', x1: selected.x - 12, y1: selected.y + 42, x2: selected.x + 12, y2: selected.y + 42 })); scene.append(svgEl('line', { class: 'cross', x1: selected.x, y1: selected.y + 30, x2: selected.x, y2: selected.y + 54 })); }
+      svg.style.transform = `scale(${state.zoom})`; svg.style.transformOrigin = 'top center'; stage.style.backgroundSize = `${20 * state.zoom}px ${20 * state.zoom}px`; stage.classList.toggle('grid-off', !state.grid); $('#summary').textContent = `${state.teeth.length} أسنان · ${state.wires.length} أسلاك`; $('#selectionText').textContent = selected ? `السن ${selected.number} محدد` : 'لا يوجد تحديد'; $('#undoBtn').disabled = !state.history.length; $('#redoBtn').disabled = !state.future.length; $('#runBtn').disabled = state.running || !state.teeth.length; $('#stopBtn').disabled = !state.running; $('#status').textContent = state.message; renderFields(); }
+    function renderFields() { const root = $('#toothFields'), item = selectedTooth(); root.replaceChildren(); if (!item) { root.innerHTML = '<p class="legend">حدد سناً لعرض خصائصه.</p>'; return; }
+      const fields = [['رقم السن', 'number', 'text'], ['زاوية (°)', 'rotation', 'number'], ['طول الجذر', 'rootLength', 'number'], ['الجذر الوظيفي', 'functionalRoot', 'number'], ['مساحة الجذر', 'rootArea', 'number']];
+      fields.forEach(([label,key,type]) => { const line = document.createElement('label'); line.className = 'field'; const name = document.createElement('span'); name.textContent = label; const input = document.createElement('input'); input.type = type; input.value = item[key]; input.addEventListener('change', () => { commit(); item[key] = type === 'number' ? Number(input.value) : input.value; setMessage('تم تحديث خصائص السن.'); render(); }); line.append(name, input); root.append(line); }); const line = document.createElement('label'); line.className='field'; line.innerHTML='<span>سن ملتحم Ankylosed</span>'; const box=document.createElement('input'); box.type='checkbox'; box.checked=item.ankylosed; box.addEventListener('change',()=>{commit(); item.ankylosed=box.checked; setMessage('تم تحديث حالة السن.'); render();}); line.append(box); root.append(line);
+    }
+    function refresh() { render(); updateToolButtons(); }
+    function updateToolButtons() { document.querySelectorAll('[data-tool]').forEach(button => button.setAttribute('aria-pressed', button.dataset.tool === state.tool)); }
+    function addTooth(number) { commit(); const existing = state.teeth.length; const x = 150 + (existing % 8) * 88; const y = 260 + Math.floor(existing / 8) * 150; const item = tooth(number, x, y); state.teeth.push(item); state.selected = { type:'tooth', id:item.id }; setMessage(`تمت إضافة السن ${number}.`); refresh(); }
+    function addWire() { const ids = state.teeth.slice(0, 2).map(t => t.id); if (ids.length < 2) return setMessage('أضف سنين على الأقل قبل إضافة سلك.'); commit(); state.wires.push({ id: uid(), toothIds: ids, material: 'NiTi', size: '0.016' }); setMessage('تمت إضافة سلك بين أول سنين.'); refresh(); }
+    function removeSelected() { if (!state.selected) return; commit(); if (state.selected.type === 'tooth') { const id = state.selected.id; state.teeth = state.teeth.filter(t => t.id !== id); state.wires = state.wires.filter(w => !w.toothIds.includes(id)); } else state.wires = state.wires.filter(w => w.id !== state.selected.id); state.selected = null; setMessage('تم حذف العنصر المحدد.'); refresh(); }
+    function undo() { if (!state.history.length) return; state.future.push(snapshot()); restore(state.history.pop()); setMessage('تم التراجع.'); refresh(); }
+    function redo() { if (!state.future.length) return; state.history.push(snapshot()); restore(state.future.pop()); setMessage('تمت الإعادة.'); refresh(); }
+    function toSvgPoint(event) { const p = svg.createSVGPoint(); p.x = event.clientX; p.y = event.clientY; return p.matrixTransform(svg.getScreenCTM().inverse()); }
+    function snap(value) { return state.snap ? Math.round(value / 10) * 10 : value; }
+    function stop() { state.running = false; cancelAnimationFrame(state.frame); setMessage('تم إيقاف المحاكاة التجريبية.'); refresh(); }
+    function run() { if (state.running) return; state.running = true; let previous = performance.now(); const threshold = 0.4; const tick = now => { if (!state.running) return; const dt = Math.min(.05, Math.max(.016, (now - previous) / 1000)); previous = now; const force = Number($('#forceAmount').value) || 0; let remaining = 0; state.teeth.forEach((item, index) => { if (item.ankylosed) return; const targetX = 515 + (index - (state.teeth.length - 1) / 2) * 72; const dx = targetX - item.x; const step = Math.sign(dx) * Math.min(Math.abs(dx), dt * force * .13); item.x = mm(item.x + step); remaining = Math.max(remaining, Math.abs(targetX - item.x)); }); if ($('#autoStop').checked && remaining < threshold) { stop(); setMessage('تم الإيقاف التلقائي: الأسنان وصلت إلى مواضع العرض التجريبية.'); return; } setMessage(`محاكاة تجريبية نشطة · قوة العرض ${force}`); render(); state.frame = requestAnimationFrame(tick); }; state.frame = requestAnimationFrame(tick); refresh(); }
+    function download() { const payload = { format:'tooth-web-simulator', version:1, savedAt:new Date().toISOString(), state:snapshot() }; const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'}); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'tooth-web-model.json'; link.click(); URL.revokeObjectURL(link.href); setMessage('تم حفظ نموذج JSON.'); }
+    function load(file) { const reader = new FileReader(); reader.onload = () => { try { const parsed=JSON.parse(reader.result); if (parsed.format !== 'tooth-web-simulator' || !parsed.state) throw Error(); commit(); restore(parsed.state); setMessage('تم فتح نموذج JSON.'); refresh(); } catch { setMessage('هذا ليس ملف JSON صالحاً لهذا النموذج.'); } }; reader.readAsText(file); }
+    document.querySelectorAll('[data-tool]').forEach(btn => btn.onclick = () => { state.tool = btn.dataset.tool; setMessage(`أداة ${btn.textContent} مفعلة.`); refresh(); }); document.querySelectorAll('#addTeeth [data-number]').forEach(btn => btn.onclick = () => addTooth(btn.dataset.number));
+    $('#addWire').onclick=addWire; $('#removeBtn').onclick=removeSelected; $('#undoBtn').onclick=undo; $('#redoBtn').onclick=redo; $('#referenceBtn').onclick=()=>{ state.reference=snapshot(); setMessage('تم حفظ الوضع الحالي كمرجع.'); refresh(); }; $('#resetBtn').onclick=()=>{ if (!state.reference) return setMessage('لا يوجد وضع مرجعي محفوظ.'); commit(); restore(state.reference); setMessage('تمت العودة للوضع المرجعي.'); refresh(); }; $('#zoom').onchange=e=>{state.zoom=Number(e.target.value);refresh()}; $('#grid').onchange=e=>{state.grid=e.target.checked;refresh()}; $('#snap').onchange=e=>state.snap=e.target.checked; $('#forces').onchange=e=>{state.forces=e.target.checked;refresh()}; $('#runBtn').onclick=run; $('#stopBtn').onclick=stop; $('#saveBtn').onclick=download; $('#loadBtn').onclick=()=>$('#fileInput').click(); $('#fileInput').onchange=e=>e.target.files[0]&&load(e.target.files[0]);
+    svg.addEventListener('pointerdown', event => { const toothEl = event.target.closest('.tooth'); if (!toothEl) { state.selected=null; refresh(); return; } const item=state.teeth.find(t=>t.id===toothEl.dataset.id); state.selected={type:'tooth',id:item.id}; const point=toSvgPoint(event); if (state.tool !== 'select') { commit(); state.drag={id:item.id, x:point.x, y:point.y, originalX:item.x, originalY:item.y, originalRotation:item.rotation}; svg.setPointerCapture(event.pointerId); } setMessage(`السن ${item.number} محدد.`); refresh(); });
+    svg.addEventListener('pointermove', event => { if (!state.drag) return; const item=state.teeth.find(t=>t.id===state.drag.id), point=toSvgPoint(event); if (state.tool==='move') { item.x=snap(state.drag.originalX+point.x-state.drag.x); item.y=snap(state.drag.originalY+point.y-state.drag.y); } else if (state.tool==='rotate') item.rotation=mm(state.drag.originalRotation+(point.x-state.drag.x)*.55); render(); }); svg.addEventListener('pointerup', event=>{ if (state.drag) { state.drag=null; svg.releasePointerCapture(event.pointerId); setMessage('تم تطبيق التغيير.'); refresh(); } });
+    $('#newBtn').onclick=()=>{ stop(); commit(); state.teeth=[]; state.wires=[]; state.selected=null; state.reference=null; setMessage('نموذج جديد.'); refresh(); };
+    defaultTeeth.forEach(([n,x,y])=>state.teeth.push(tooth(n,x,y))); state.wires.push({id:uid(),toothIds:state.teeth.map(t=>t.id),material:'NiTi',size:'0.016'}); state.reference=snapshot(); refresh();
+  </script>
+</body>
+</html>
