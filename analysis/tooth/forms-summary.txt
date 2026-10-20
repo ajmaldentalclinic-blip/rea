@@ -1,0 +1,236 @@
+
+FORM TABOUTFORM
+TAboutForm AboutForm {"Caption": "About Tooth", "ClientHeight": 186, "ClientWidth": 279, "OnCreate": "FormCreate", "OnShow": "FormShow"}
+ TBevel Bevel1 {}
+ TLabel ProgramName {"Caption": "Tooth"}
+ TImage ProgramIcon {}
+ TLabel Version {"Caption": "version 1.2"}
+ TLabel Label1 {"Caption": "Orthodontic Tooth Simulator"}
+ TLabel Label2 {"Caption": "Copyright © D.Halazonetis 1996-2024"}
+ TLabel Label3 {"Caption": "Kifissia, Greece"}
+ TButton OKBut {"Caption": "Visit Website", "OnClick": "OKButClick"}
+
+FORM TMAINFORM
+TMainForm MainForm {"Caption": "Tooth [Untitled]", "ClientHeight": 506, "ClientWidth": 804, "OnCloseQuery": "FormCloseQuery", "OnCreate": "FormCreate", "OnDestroy": "FormDestroy", "OnShow": "FormShow"}
+ TPanel PanelDisplay {"OnResize": "PanelDisplayResize"}
+  TPaintBox Display {"OnMouseDown": "DisplayMouseDown", "OnMouseMove": "DisplayMouseMove", "OnMouseUp": "DisplayMouseUp", "OnPaint": "DisplayPaint"}
+  TPanel PanelScrollHorz {}
+   TScrollBar ScrollBarHorz {"OnScroll": "ScrollBarMainScroll"}
+   TPanel PanelScrollHorzSm {}
+    TSpeedButton ScrollBestFitSB {"Hint": "Best Fit|Zoom to best fit."}
+  TScrollBar ScrollBarVert {"OnScroll": "ScrollBarMainScroll"}
+ TPanel PanelLower {}
+  TPanel PanelBottom {}
+  TPanel PanelAuto {"Hint": "Auto / Manual Stop|Stop wire activation automatically when desired position is reached. Double click to change.", "Caption": "Auto Stop", "OnDblClick": "PanelAutoDblClick"}
+ TPanel PanelInfo {}
+ TControlBar ControlBarTools {}
+  TToolBar ToolBarMain {"Caption": "Main"}
+   TToolButton ToolButtonNew {}
+   TToolButton ToolButtonOpen {}
+   TToolButton ToolButtonSave {}
+   TToolButton ToolButtonPrint {}
+   TToolButton ToolButtonSep1 {"Caption": "ToolButtonSep1"}
+   TToolButton ToolButtonRun {}
+   TToolButton ToolButtonStop {}
+   TToolButton ToolButtonSep3 {"Caption": "ToolButtonSep3"}
+   TToolButton ToolButtonUndo {}
+   TToolButton ToolButtonRedo {}
+  TToolBar ToolBarTools {"Caption": "Tools"}
+   TToolButton ToolButtonZoom {}
+   TComboBox ZoomCB {"Hint": "Zoom Control|Select the desired zoom level or enter a value.", "Text": "100%", "OnClick": "ZoomCBClick", "OnKeyPress": "ZoomCBKeyPress", "Items.Strings": ["600%", "300%", "200%", "150%", "100%", "75%", "50%", "25%", "Best Fit", "Fit All"]}
+   TToolButton ToolButton1 {"Caption": "ToolButton1"}
+   TToolButton ToolButtonChooser {}
+   TToolButton ToolButtonTranslate {"Caption": "ToolButtonTranslate"}
+   TToolButton ToolButtonRotCenter {"Caption": "ToolButtonRotCenter"}
+   TToolButton ToolButtonRotate {"Caption": "ToolButtonRotate"}
+   TToolButton ToolButtonNone {"Caption": "ToolButtonNone"}
+ TMainMenu MainMenu {}
+  TMenuItem MenuFile {"Caption": "&File"}
+   TMenuItem MenuFileNew {}
+   TMenuItem MenuFileOpen {}
+   TMenuItem MenuFileSave {}
+   TMenuItem MenuFileSaveAs {"Caption": "Save &As...", "Hint": "Specify file and save loop.", "OnClick": "FileSaveAsClick"}
+   TMenuItem MenuSep1 {"Caption": "-"}
+   TMenuItem MenuFilePrint {}
+   TMenuItem MenuSep7 {"Caption": "-"}
+   TMenuItem MenuFileExit {"Caption": "E&xit", "Hint": "Exit program.", "OnClick": "MenuFileExitClick"}
+  TMenuItem MenuEdit {"Caption": "&Edit"}
+   TMenuItem MenuToothAdd {"Caption": "&Add Tooth"}
+    TMenuItem N161 {"Caption": "16"}
+    TMenuItem N8 {"Caption": "-"}
+    TMenuItem MenuTooth46 {"Caption": "46", "Hint": "Add a lower right first molar.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N151 {"Caption": "15"}
+    TMenuItem N9 {"Caption": "-"}
+    TMenuItem MenuTooth45 {"Caption": "45", "Hint": "Add a lower right second premolar.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N141 {"Caption": "14"}
+    TMenuItem N10 {"Caption": "-"}
+    TMenuItem MenuTooth44 {"Caption": "44", "Hint": "Add a lower right first premolar.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N131 {"Caption": "13"}
+    TMenuItem N11 {"Caption": "-"}
+    TMenuItem MenuTooth43 {"Caption": "43", "Hint": "Add a lower right canine.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N121 {"Caption": "12"}
+    TMenuItem N12 {"Caption": "-"}
+    TMenuItem N421 {"Caption": "42"}
+    TMenuItem N111 {"Caption": "11"}
+    TMenuItem N7 {"Caption": "-"}
+    TMenuItem N411 {"Caption": "41"}
+    TMenuItem N211 {"Caption": "21"}
+    TMenuItem N1 {"Caption": "-"}
+    TMenuItem N311 {"Caption": "31"}
+    TMenuItem N221 {"Caption": "22"}
+    TMenuItem N2 {"Caption": "-"}
+    TMenuItem N321 {"Caption": "32"}
+    TMenuItem N231 {"Caption": "23"}
+    TMenuItem N3 {"Caption": "-"}
+    TMenuItem MenuTooth33 {"Caption": "33", "Hint": "Add a lower left canine.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N241 {"Caption": "24"}
+    TMenuItem N4 {"Caption": "-"}
+    TMenuItem MenuTooth34 {"Caption": "34", "Hint": "Add a lower left first premolar.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N251 {"Caption": "25"}
+    TMenuItem N5 {"Caption": "-"}
+    TMenuItem MenuTooth35 {"Caption": "35", "Hint": "Add a lower left second premolar.", "OnClick": "MenuAddToothClick"}
+    TMenuItem N261 {"Caption": "26"}
+    TMenuItem N6 {"Caption": "-"}
+    TMenuItem MenuTooth36 {"Caption": "36", "Hint": "Add a lower left first molar.", "OnClick": "MenuAddToothClick"}
+   TMenuItem MenuWireAdd {"Caption": "Add &Wire", "Hint": "Add a new piece of wire.", "OnClick": "MenuWireAddClick"}
+   TMenuItem MenuProperties {}
+   TMenuItem MenuRemove {}
+   TMenuItem MenuSep9 {"Caption": "-"}
+   TMenuItem MenuCopyasPicture {"Caption": "&Copy as Picture", "Hint": "MenuEditCopy", "OnClick": "CopyPicture"}
+   TMenuItem MenuSep6 {"Caption": "-"}
+   TMenuItem MenuEditOptions {"Caption": "&Options...", "Hint": "Change various program options.", "OnClick": "MenuEditOptionsClick"}
+  TMenuItem MenuView {"Caption": "&View"}
+   TMenuItem MenuViewZoomIn {"Caption": "&Zoom In", "Hint": "Zoom in.", "OnClick": "MenuViewZoomClick"}
+   TMenuItem MenuViewZoomOut {"Caption": "Zoom &Out", "Hint": "Zoom out.", "OnClick": "MenuViewZoomClick"}
+   TMenuItem MenuViewZoomF {"Caption": "Zoom &Forces"}
+    TMenuItem MenuViewZoomForcesIn {"Caption": "&Zoom In", "Hint": "Draw forces larger.", "OnClick": "MenuViewZoomForcesClick"}
+    TMenuItem MenuViewZoomForcesOut {"Caption": "Zoom &Out", "Hint": "Draw forces smaller.", "OnClick": "MenuViewZoomForcesClick"}
+   TMenuItem MenuSep4 {"Caption": "-"}
+   TMenuItem MenuViewShowGrid {"Caption": "Show &Grid", "Hint": "Show a grid to help align and bend the wire.", "OnClick": "MenuViewShowGridClick"}
+   TMenuItem MenuViewSnaptoGrid {"Caption": "&Snap to Grid", "Hint": "Restrict movement to 1mm and 1 degree steps.", "OnClick": "MenuViewSnaptoGridClick"}
+  TMenuItem MenuOrtho {"Caption": "&Ortho"}
+   TMenuItem MenuOrthoStart {"Caption": "&Run"}
+   TMenuItem MenuOrthoStop {"Caption": "&Stop"}
+   TMenuItem MenuSep10 {"Caption": "-"}
+   TMenuItem MenuOrthoRef {"Caption": "Set as &Reference", "Hint": "Remember this as the initial position.", "OnClick": "MenuOrthoRefClick"}
+   TMenuItem MenuOrthoReset {"Caption": "R&eset to Reference", "Hint": "Reset teeth to the initial position.", "OnClick": "MenuOrthoResetClick"}
+   TMenuItem MenuOrthoClear {"Caption": "&Clear Reference", "Hint": "Delete initial position.", "OnClick": "MenuOrthoClearClick"}
+   TMenuItem MenuSep11 {"Caption": "-"}
+   TMenuItem MenuOrthoCapture {"Caption": "C&apture", "Hint": "Send information to capture file."}
+  TMenuItem MenuHelp {"Caption": "&Help"}
+   TMenuItem MenuHelpContents {}
+   TMenuItem MenuSep3 {"Caption": "-"}
+   TMenuItem MenuHelpAbout {"Caption": "&About...", "Hint": "Information about Tooth.", "OnClick": "MenuHelpAboutClick"}
+ TSaveDialog SaveDialog {}
+ TOpenDialog OpenDialog {}
+ TImageList ImageListMain {}
+ TActionList ActionListMain {}
+  TAction ActionNew {"Caption": "&New...", "Hint": "New Radiograph|Enter a new radiograph.", "OnExecute": "ActionNewExecute"}
+  TAction ActionOpen {"Caption": "&Open...", "Hint": "Open Simulation|Load a simulation from a file.", "OnExecute": "ActionOpenExecute"}
+  TAction ActionSave {"Caption": "&Save", "Hint": "Save Radiograph|Save the current radiograph to a file.", "OnExecute": "ActionSaveExecute"}
+  TAction ActionQuickPrint {"Caption": "&Print", "Hint": "Print Radiograph|Print the current radiograph."}
+  TAction ActionPrint {"Caption": "&Print...", "Hint": "Print Radiograph|Print the current radiograph."}
+  TAction ActionZoom {"Caption": "ActionZoom", "Hint": "Zoom In/Out|Zoom in (Left Button) / Zoom out (Right Button).", "OnExecute": "SelectTool"}
+  TAction ActionChooser {"Caption": "ActionChooser", "Hint": "Select|Select", "OnExecute": "SelectTool"}
+  TAction ActionTranslate {"Caption": "ActionTranslate", "Hint": "Translate|Translate."}
+  TAction ActionRotCenter {"Caption": "ActionRotCenter", "Hint": "Rotation Center|Click to set the Rotation Center."}
+  TAction ActionRotate {"Caption": "ActionRotate", "Hint": "Rotate|Rotate selected areas and points."}
+  TAction ActionUndoLast {"Caption": "&Undo...", "Hint": "Undo|Undo last movement."}
+  TAction ActionRedoLast {"Caption": "&Redo...", "Hint": "Redo|Repeat last movement."}
+  TAction ActionNone {"Caption": "ActionNone"}
+  TAction ActionClose {"Caption": "&Remove", "Hint": "Remove|Remove the selected item.", "OnExecute": "ActionCloseExecute"}
+  TAction ActionProperties {"Caption": "&Properties", "Hint": "Properties|Change the properties of the selected item.", "OnExecute": "ActionPropertiesExecute"}
+  TAction ActionRun {"Caption": "ActionRun", "Hint": "Run|Start orthodontic movement.", "OnExecute": "ActionRunExecute"}
+  TAction ActionStop {"Caption": "ActionStop", "Hint": "Stop|Stop orthodontic movement.", "OnExecute": "ActionStopExecute"}
+  TAction ActionHelp {"Caption": "&Contents", "OnExecute": "ActionHelpExecute"}
+ TImageList ImageListMarkers {}
+ TImageList ImageListWireMarkers {}
+
+FORM TTOOTHINFDLG
+TToothInfDlg ToothInfDlg {"Caption": "Tooth Info", "ClientHeight": 373, "ClientWidth": 418, "OnCreate": "FormCreate", "OnShow": "FormShow"}
+ TPageControl PageControl1 {}
+  TTabSheet ToothPage {"Caption": "Tooth"}
+   TLabel AnatomicRoot {"Caption": "Anatomic Root Length:"}
+   TLabel FunctRoot {"Caption": "Functional Root Length:"}
+   TLabel FunctArea {"Caption": "Functional Root Area:"}
+   TBevel Bevel1 {}
+   TLabel TipLbl {"Caption": "A&ngulation:"}
+   TPanel PanelDisplay {}
+    TPaintBox Display {"OnPaint": "DisplayPaint"}
+   TScrollBar ScrollBarRoot {"OnChange": "ScrollBarRootChange"}
+   TCheckBox Ankylosed {"Caption": "An&kylosed", "OnClick": "AnkylosedClick"}
+   TButton ApplyBut {"Caption": "&Apply", "OnClick": "ApplyButClick"}
+   TGroupBox GroupBoxMove {"Caption": "Move"}
+    TLabel dxLbl {"Caption": "d&x:"}
+    TLabel dyLbl {"Caption": "d&y:"}
+    TEdit dx {"Text": "dx"}
+    TEdit dy {"Text": "dy"}
+   TEdit Tip {"Text": "Tip"}
+  TTabSheet PerioPage {"Caption": "Perio"}
+   TLabel Label2 {"Caption": "0.0"}
+   TLabel Label1 {"Caption": "gf / mm2"}
+   TLabel Label3 {"Caption": "10.0"}
+   TLabel Label4 {"Caption": "Pre-defined Responses:"}
+   TLabel TotalForce {"Caption": "TotalForce"}
+   TLabel TotalForceX {"Caption": "TotalForceX"}
+   TLabel TotalForceY {"Caption": "TotalForceY"}
+   TLabel TotalMoment {"Caption": "TotalForce"}
+   TPanel PanelPerioDisplay {}
+    TPaintBox PerioDisplay {"OnMouseDown": "PerioDisplayMouseDown", "OnMouseMove": "PerioDisplayMouseMove", "OnMouseUp": "PerioDisplayMouseUp", "OnPaint": "PerioDisplayPaint"}
+   TButton ButSaveResponce {"Caption": "Save As...", "OnClick": "ButSaveResponceClick"}
+   TComboBox ResponceCB {"OnChange": "ResponceCBChange"}
+ TPanel PanelTop {"Caption": "PanelTop"}
+ TButton OKBut {"Caption": "Close"}
+ TButton HelpBut {"Caption": "Help"}
+
+FORM TTOOTHOPTIONS
+TToothOptions ToothOptions {"Caption": "Loop Options", "ClientHeight": 357, "ClientWidth": 354, "OnCreate": "FormCreate"}
+ TPageControl PageControl1 {}
+  TTabSheet GeneralPage {"Caption": "General"}
+   TCheckBox RememberRectCB {"Caption": "Remember Window Position"}
+  TTabSheet ViewPage {"Caption": "&View"}
+   TGroupBox ViewForceGroup {"Caption": "View Forces"}
+    TCheckBox ViewF {"Caption": "&Forces"}
+    TCheckBox ViewM {"Caption": "&Moments"}
+   TRadioGroup ForcesOn {"Hint": "Show forces and moments##  acting on the teeth##  acting on the wires.|", "Caption": "Forces &Applied On", "Items.Strings": ["Teeth", "Wires"]}
+   TCheckBox ViewGrid {"Caption": "View &Grid"}
+   TCheckBox SnapGrid {"Caption": "S&nap to Grid"}
+   TRadioGroup GridDensity {"Caption": "Grid &Density", "Items.Strings": ["10 mm", "5 mm", "2 mm"]}
+   TGroupBox DrawForceGB {"Caption": "Draw Forces"}
+    TCheckBox DrawFCRes {"Caption": "At Center of Resistance"}
+    TCheckBox DrawFAtt {"Caption": "At Attachments"}
+    TCheckBox DrawFBr {"Caption": "At Brackets"}
+   TCheckBox NoWidthCB {"Caption": "Zero Width Brackets"}
+  TTabSheet CalcPage {"Caption": "&Calculation"}
+   TCheckBox AutoStop {"Hint": "Automatically stop wire activation##when tolerance is met.|", "Caption": "&Auto Stop"}
+   TGroupBox ThrGroupBox {"Caption": "Threshold"}
+    TLabel ThrForceLbl {"Caption": "&Force (gf):"}
+    TLabel ThrMomLbl {"Caption": "&Moment (gf.mm):"}
+    TEdit ThrForce {"Hint": "Stop tooth movement when##forces and moments are below the threshold|", "Text": "1"}
+    TEdit ThrMom {"Hint": "Stop tooth movement when##forces and moments are below the threshold|", "Text": "1"}
+ TButton OKBut {"Caption": "OK"}
+ TButton HelpBut {"Caption": "Help", "OnClick": "HelpButClick"}
+ TButton CancelBut {"Caption": "Cancel"}
+
+FORM TWIREINFO
+TWireInfo WireInfo {"Caption": "Wire", "ClientHeight": 238, "ClientWidth": 378, "OnCreate": "FormCreate", "OnShow": "FormShow"}
+ TPageControl PageControl1 {}
+  TTabSheet InfoPage {"Caption": "General"}
+   TLabel LengthLbl {"Caption": "Total Wire Length:"}
+   TLabel Length {"Caption": "152"}
+   TLabel Force {"Caption": "15.3"}
+   TLabel ForceLbl {"Caption": "Force:"}
+   TLabel MomentA {"Caption": "15.3"}
+   TLabel MomentALbl {"Caption": "Moment A:"}
+   TLabel MomentB {"Caption": "15.3"}
+   TLabel MomentBLbl {"Caption": "Moment B:"}
+   TLabel AngleRatio {"Caption": "15.3"}
+   TLabel AngleRatioLbl {"Caption": "Angle Ratio:"}
+   TLabel BurstoneClass {"Caption": "15.3"}
+   TLabel BurstoneClassLbl {"Caption": "Burstone Class:"}
+   TLabel MaterialLbl {"Caption": "Material:"}
+   TLabel SizeLbl {"Caption": "Size:"}
+   TComboBox WireSizeCB {"Hint": "Wire Size", "OnChange": "WireSizeCBChange"}
+   TComboBox WireMaterialCB {"Hint": "Wire Material", "OnChange": "WireMaterialCBChange"}
+ TButton OKBut {"Caption": "Close"}
+ TButton HelpBut {"Caption": "Help", "OnClick": "HelpButClick"}

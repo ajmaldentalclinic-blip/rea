@@ -1,0 +1,3209 @@
+{
+  "TABOUTFORM": {
+    "class": "TAboutForm",
+    "name": "AboutForm",
+    "properties": {
+      "Left": 295,
+      "Top": 244,
+      "BorderIcons": [
+        "biSystemMenu"
+      ],
+      "BorderStyle": "bsDialog",
+      "Caption": "About Tooth",
+      "ClientHeight": 186,
+      "ClientWidth": 279,
+      "Color": "clBtnFace",
+      "Font.Charset": "DEFAULT_CHARSET",
+      "Font.Color": "clWindowText",
+      "Font.Height": -12,
+      "Font.Name": "Tahoma",
+      "Font.Style": [],
+      "OldCreateOrder": true,
+      "Position": "poMainFormCenter",
+      "OnCreate": "FormCreate",
+      "OnShow": "FormShow",
+      "PixelsPerInch": 96,
+      "TextHeight": 14
+    },
+    "children": [
+      {
+        "class": "TBevel",
+        "name": "Bevel1",
+        "properties": {
+          "Left": 7,
+          "Top": 7,
+          "Width": 264,
+          "Height": 140,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2
+        },
+        "children": []
+      },
+      {
+        "class": "TLabel",
+        "name": "ProgramName",
+        "properties": {
+          "Left": 13,
+          "Top": 13,
+          "Width": 102,
+          "Height": 42,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "Tooth",
+          "Font.Charset": "DEFAULT_CHARSET",
+          "Font.Color": "clWindowText",
+          "Font.Height": -35,
+          "Font.Name": "Tahoma",
+          "Font.Style": [
+            "fsBold"
+          ],
+          "ParentFont": false
+        },
+        "children": []
+      },
+      {
+        "class": "TImage",
+        "name": "ProgramIcon",
+        "properties": {
+          "Left": 119,
+          "Top": 15,
+          "Width": 46,
+          "Height": 40,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Center": true,
+          "Picture.Data": {
+            "binary_size": 772,
+            "prefix": "055449636f6e0000010001002020100000000000"
+          }
+        },
+        "children": []
+      },
+      {
+        "class": "TLabel",
+        "name": "Version",
+        "properties": {
+          "Left": 13,
+          "Top": 59,
+          "Width": 85,
+          "Height": 18,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "version 1.2",
+          "Font.Charset": "DEFAULT_CHARSET",
+          "Font.Color": "clWindowText",
+          "Font.Height": -15,
+          "Font.Name": "Tahoma",
+          "Font.Style": [
+            "fsBold"
+          ],
+          "ParentFont": false
+        },
+        "children": []
+      },
+      {
+        "class": "TLabel",
+        "name": "Label1",
+        "properties": {
+          "Left": 13,
+          "Top": 94,
+          "Width": 158,
+          "Height": 14,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "Orthodontic Tooth Simulator"
+        },
+        "children": []
+      },
+      {
+        "class": "TLabel",
+        "name": "Label2",
+        "properties": {
+          "Left": 13,
+          "Top": 111,
+          "Width": 207,
+          "Height": 14,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "Copyright © D.Halazonetis 1996-2024"
+        },
+        "children": []
+      },
+      {
+        "class": "TLabel",
+        "name": "Label3",
+        "properties": {
+          "Left": 13,
+          "Top": 127,
+          "Width": 80,
+          "Height": 14,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "Kifissia, Greece"
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "OKBut",
+        "properties": {
+          "Left": 7,
+          "Top": 151,
+          "Width": 150,
+          "Height": 26,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Caption": "Visit Website",
+          "TabOrder": 0,
+          "OnClick": "OKButClick"
+        },
+        "children": []
+      }
+    ]
+  },
+  "TMAINFORM": {
+    "class": "TMainForm",
+    "name": "MainForm",
+    "properties": {
+      "Left": 205,
+      "Top": 294,
+      "Caption": "Tooth [Untitled]",
+      "ClientHeight": 506,
+      "ClientWidth": 804,
+      "Color": "clBtnFace",
+      "Font.Charset": "DEFAULT_CHARSET",
+      "Font.Color": "clWindowText",
+      "Font.Height": -11,
+      "Font.Name": "Tahoma",
+      "Font.Style": [],
+      "Icon.Data": {
+        "binary_size": 766,
+        "prefix": "0000010001002020100000000000e80200001600"
+      },
+      "Menu": "MainMenu",
+      "OldCreateOrder": true,
+      "Position": "poDefault",
+      "ShowHint": true,
+      "OnCloseQuery": "FormCloseQuery",
+      "OnCreate": "FormCreate",
+      "OnDestroy": "FormDestroy",
+      "OnShow": "FormShow",
+      "PixelsPerInch": 96,
+      "TextHeight": 13
+    },
+    "children": [
+      {
+        "class": "TPanel",
+        "name": "PanelDisplay",
+        "properties": {
+          "Left": 0,
+          "Top": 50,
+          "Width": 804,
+          "Height": 438,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Align": "alClient",
+          "BevelOuter": "bvLowered",
+          "Color": "clWindow",
+          "TabOrder": 0,
+          "OnResize": "PanelDisplayResize"
+        },
+        "children": [
+          {
+            "class": "TPaintBox",
+            "name": "Display",
+            "properties": {
+              "Left": 1,
+              "Top": 1,
+              "Width": 786,
+              "Height": 420,
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Align": "alClient",
+              "OnMouseDown": "DisplayMouseDown",
+              "OnMouseMove": "DisplayMouseMove",
+              "OnMouseUp": "DisplayMouseUp",
+              "OnPaint": "DisplayPaint",
+              "ExplicitLeft": -3,
+              "ExplicitTop": 4
+            },
+            "children": []
+          },
+          {
+            "class": "TPanel",
+            "name": "PanelScrollHorz",
+            "properties": {
+              "Left": 1,
+              "Top": 421,
+              "Width": 802,
+              "Height": 16,
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Align": "alBottom",
+              "BevelOuter": "bvNone",
+              "TabOrder": 0
+            },
+            "children": [
+              {
+                "class": "TScrollBar",
+                "name": "ScrollBarHorz",
+                "properties": {
+                  "Left": 0,
+                  "Top": 0,
+                  "Width": 786,
+                  "Height": 16,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Align": "alClient",
+                  "Max": 2000,
+                  "PageSize": 0,
+                  "TabOrder": 0,
+                  "TabStop": false,
+                  "OnScroll": "ScrollBarMainScroll"
+                },
+                "children": []
+              },
+              {
+                "class": "TPanel",
+                "name": "PanelScrollHorzSm",
+                "properties": {
+                  "Left": 786,
+                  "Top": 0,
+                  "Width": 16,
+                  "Height": 16,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Align": "alRight",
+                  "BevelOuter": "bvNone",
+                  "TabOrder": 1
+                },
+                "children": [
+                  {
+                    "class": "TSpeedButton",
+                    "name": "ScrollBestFitSB",
+                    "properties": {
+                      "Left": 0,
+                      "Top": 0,
+                      "Width": 16,
+                      "Height": 16,
+                      "Hint": "Best Fit|Zoom to best fit.",
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "class": "TScrollBar",
+            "name": "ScrollBarVert",
+            "properties": {
+              "Left": 787,
+              "Top": 1,
+              "Width": 16,
+              "Height": 420,
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Align": "alRight",
+              "Kind": "sbVertical",
+              "Max": 2000,
+              "PageSize": 0,
+              "TabOrder": 1,
+              "TabStop": false,
+              "OnScroll": "ScrollBarMainScroll"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "class": "TPanel",
+        "name": "PanelLower",
+        "properties": {
+          "Left": 0,
+          "Top": 488,
+          "Width": 804,
+          "Height": 18,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Align": "alBottom",
+          "BevelOuter": "bvNone",
+          "TabOrder": 1
+        },
+        "children": [
+          {
+            "class": "TPanel",
+            "name": "PanelBottom",
+            "properties": {
+              "Left": 0,
+              "Top": 0,
+              "Width": 731,
+              "Height": 18,
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Align": "alClient",
+              "Alignment": "taLeftJustify",
+              "BevelInner": "bvLowered",
+              "BevelOuter": "bvNone",
+              "BorderWidth": 1,
+              "TabOrder": 0
+            },
+            "children": []
+          },
+          {
+            "class": "TPanel",
+            "name": "PanelAuto",
+            "properties": {
+              "Left": 731,
+              "Top": 0,
+              "Width": 73,
+              "Height": 18,
+              "Hint": "Auto / Manual Stop|Stop wire activation automatically when desired position is reached. Double click to change.",
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Align": "alRight",
+              "BevelInner": "bvLowered",
+              "BevelOuter": "bvNone",
+              "BorderWidth": 1,
+              "Caption": "Auto Stop",
+              "TabOrder": 1,
+              "OnDblClick": "PanelAutoDblClick"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "class": "TPanel",
+        "name": "PanelInfo",
+        "properties": {
+          "Left": 0,
+          "Top": 30,
+          "Width": 804,
+          "Height": 20,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Align": "alTop",
+          "Alignment": "taLeftJustify",
+          "BevelOuter": "bvLowered",
+          "TabOrder": 2
+        },
+        "children": []
+      },
+      {
+        "class": "TControlBar",
+        "name": "ControlBarTools",
+        "properties": {
+          "Left": 0,
+          "Top": 0,
+          "Width": 804,
+          "Height": 30,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Align": "alTop",
+          "AutoSize": true,
+          "BevelEdges": [
+            "beTop"
+          ],
+          "RowSnap": false,
+          "TabOrder": 3
+        },
+        "children": [
+          {
+            "class": "TToolBar",
+            "name": "ToolBarMain",
+            "properties": {
+              "Left": 11,
+              "Top": 2,
+              "Width": 208,
+              "Height": 24,
+              "Align": "alNone",
+              "AutoSize": true,
+              "ButtonHeight": 24,
+              "ButtonWidth": 24,
+              "Caption": "Main",
+              "DragKind": "dkDock",
+              "DragMode": "dmAutomatic",
+              "Images": "ImageListMain",
+              "TabOrder": 0
+            },
+            "children": [
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonNew",
+                "properties": {
+                  "Left": 0,
+                  "Top": 0,
+                  "Action": "ActionNew"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonOpen",
+                "properties": {
+                  "Left": 24,
+                  "Top": 0,
+                  "Action": "ActionOpen"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonSave",
+                "properties": {
+                  "Left": 48,
+                  "Top": 0,
+                  "Action": "ActionSave"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonPrint",
+                "properties": {
+                  "Left": 72,
+                  "Top": 0,
+                  "Action": "ActionPrint"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonSep1",
+                "properties": {
+                  "Left": 96,
+                  "Top": 0,
+                  "Width": 8,
+                  "Caption": "ToolButtonSep1",
+                  "ImageIndex": 4,
+                  "Style": "tbsDivider"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonRun",
+                "properties": {
+                  "Left": 104,
+                  "Top": 0,
+                  "Action": "ActionRun"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonStop",
+                "properties": {
+                  "Left": 128,
+                  "Top": 0,
+                  "Action": "ActionStop"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonSep3",
+                "properties": {
+                  "Left": 152,
+                  "Top": 0,
+                  "Width": 8,
+                  "Caption": "ToolButtonSep3",
+                  "ImageIndex": 10,
+                  "Style": "tbsSeparator"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonUndo",
+                "properties": {
+                  "Left": 160,
+                  "Top": 0,
+                  "Action": "ActionUndoLast"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonRedo",
+                "properties": {
+                  "Left": 184,
+                  "Top": 0,
+                  "Action": "ActionRedoLast"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TToolBar",
+            "name": "ToolBarTools",
+            "properties": {
+              "Left": 232,
+              "Top": 2,
+              "Width": 234,
+              "Height": 24,
+              "Align": "alNone",
+              "AutoSize": true,
+              "ButtonHeight": 24,
+              "ButtonWidth": 25,
+              "Caption": "Tools",
+              "DragKind": "dkDock",
+              "DragMode": "dmAutomatic",
+              "EdgeInner": "esNone",
+              "EdgeOuter": "esNone",
+              "Images": "ImageListMain",
+              "TabOrder": 1
+            },
+            "children": [
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonZoom",
+                "properties": {
+                  "Left": 0,
+                  "Top": 0,
+                  "Action": "ActionZoom",
+                  "AllowAllUp": true,
+                  "Grouped": true,
+                  "Style": "tbsCheck"
+                },
+                "children": []
+              },
+              {
+                "class": "TComboBox",
+                "name": "ZoomCB",
+                "properties": {
+                  "Left": 25,
+                  "Top": 1,
+                  "Width": 76,
+                  "Height": 21,
+                  "Hint": "Zoom Control|Select the desired zoom level or enter a value.",
+                  "DropDownCount": 10,
+                  "TabOrder": 0,
+                  "TabStop": false,
+                  "Text": "100%",
+                  "OnClick": "ZoomCBClick",
+                  "OnKeyPress": "ZoomCBKeyPress",
+                  "Items.Strings": [
+                    "600%",
+                    "300%",
+                    "200%",
+                    "150%",
+                    "100%",
+                    "75%",
+                    "50%",
+                    "25%",
+                    "Best Fit",
+                    "Fit All"
+                  ]
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButton1",
+                "properties": {
+                  "Left": 101,
+                  "Top": 0,
+                  "Width": 8,
+                  "Caption": "ToolButton1",
+                  "ImageIndex": 0,
+                  "Style": "tbsSeparator"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonChooser",
+                "properties": {
+                  "Left": 109,
+                  "Top": 0,
+                  "Action": "ActionChooser",
+                  "AllowAllUp": true,
+                  "Grouped": true,
+                  "Style": "tbsCheck"
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonTranslate",
+                "properties": {
+                  "Left": 134,
+                  "Top": 0,
+                  "AllowAllUp": true,
+                  "Caption": "ToolButtonTranslate",
+                  "Grouped": true,
+                  "Style": "tbsCheck",
+                  "Visible": false
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonRotCenter",
+                "properties": {
+                  "Left": 159,
+                  "Top": 0,
+                  "AllowAllUp": true,
+                  "Caption": "ToolButtonRotCenter",
+                  "Grouped": true,
+                  "Style": "tbsCheck",
+                  "Visible": false
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonRotate",
+                "properties": {
+                  "Left": 184,
+                  "Top": 0,
+                  "AllowAllUp": true,
+                  "Caption": "ToolButtonRotate",
+                  "Grouped": true,
+                  "Style": "tbsCheck",
+                  "Visible": false
+                },
+                "children": []
+              },
+              {
+                "class": "TToolButton",
+                "name": "ToolButtonNone",
+                "properties": {
+                  "Tag": 8,
+                  "Left": 209,
+                  "Top": 0,
+                  "Caption": "ToolButtonNone",
+                  "Visible": false
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "TMainMenu",
+        "name": "MainMenu",
+        "properties": {
+          "Images": "ImageListMain",
+          "Left": 350,
+          "Top": 90
+        },
+        "children": [
+          {
+            "class": "TMenuItem",
+            "name": "MenuFile",
+            "properties": {
+              "Caption": "&File"
+            },
+            "children": [
+              {
+                "class": "TMenuItem",
+                "name": "MenuFileNew",
+                "properties": {
+                  "Action": "ActionNew"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuFileOpen",
+                "properties": {
+                  "Action": "ActionOpen"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuFileSave",
+                "properties": {
+                  "Action": "ActionSave"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuFileSaveAs",
+                "properties": {
+                  "Caption": "Save &As...",
+                  "Enabled": false,
+                  "Hint": "Specify file and save loop.",
+                  "OnClick": "FileSaveAsClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep1",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuFilePrint",
+                "properties": {
+                  "Action": "ActionPrint"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep7",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuFileExit",
+                "properties": {
+                  "Caption": "E&xit",
+                  "Hint": "Exit program.",
+                  "OnClick": "MenuFileExitClick"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TMenuItem",
+            "name": "MenuEdit",
+            "properties": {
+              "Caption": "&Edit"
+            },
+            "children": [
+              {
+                "class": "TMenuItem",
+                "name": "MenuToothAdd",
+                "properties": {
+                  "Caption": "&Add Tooth"
+                },
+                "children": [
+                  {
+                    "class": "TMenuItem",
+                    "name": "N161",
+                    "properties": {
+                      "Caption": "16",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N8",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth46",
+                    "properties": {
+                      "Tag": 46,
+                      "Caption": "46",
+                      "Hint": "Add a lower right first molar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N151",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "15",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N9",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth45",
+                    "properties": {
+                      "Tag": 45,
+                      "Caption": "45",
+                      "Hint": "Add a lower right second premolar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N141",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "14",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N10",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth44",
+                    "properties": {
+                      "Tag": 44,
+                      "Caption": "44",
+                      "Hint": "Add a lower right first premolar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N131",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "13",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N11",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth43",
+                    "properties": {
+                      "Tag": 43,
+                      "Caption": "43",
+                      "Hint": "Add a lower right canine.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N121",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "12",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N12",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N421",
+                    "properties": {
+                      "Caption": "42",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N111",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "11",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N7",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N411",
+                    "properties": {
+                      "Caption": "41",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N211",
+                    "properties": {
+                      "Break": "mbBarBreak",
+                      "Caption": "21",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N1",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N311",
+                    "properties": {
+                      "Caption": "31",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N221",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "22",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N2",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N321",
+                    "properties": {
+                      "Caption": "32",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N231",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "23",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N3",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth33",
+                    "properties": {
+                      "Tag": 33,
+                      "Caption": "33",
+                      "Hint": "Add a lower left canine.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N241",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "24",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N4",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth34",
+                    "properties": {
+                      "Tag": 34,
+                      "Caption": "34",
+                      "Hint": "Add a lower left first premolar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N251",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "25",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N5",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth35",
+                    "properties": {
+                      "Tag": 35,
+                      "Caption": "35",
+                      "Hint": "Add a lower left second premolar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N261",
+                    "properties": {
+                      "Break": "mbBreak",
+                      "Caption": "26",
+                      "Enabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "N6",
+                    "properties": {
+                      "Caption": "-"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuTooth36",
+                    "properties": {
+                      "Tag": 36,
+                      "Caption": "36",
+                      "Hint": "Add a lower left first molar.",
+                      "OnClick": "MenuAddToothClick"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuWireAdd",
+                "properties": {
+                  "Caption": "Add &Wire",
+                  "Hint": "Add a new piece of wire.",
+                  "OnClick": "MenuWireAddClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuProperties",
+                "properties": {
+                  "Action": "ActionProperties"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuRemove",
+                "properties": {
+                  "Action": "ActionClose"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep9",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuCopyasPicture",
+                "properties": {
+                  "Caption": "&Copy as Picture",
+                  "Hint": "MenuEditCopy",
+                  "OnClick": "CopyPicture"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep6",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuEditOptions",
+                "properties": {
+                  "Caption": "&Options...",
+                  "Hint": "Change various program options.",
+                  "OnClick": "MenuEditOptionsClick"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TMenuItem",
+            "name": "MenuView",
+            "properties": {
+              "Caption": "&View"
+            },
+            "children": [
+              {
+                "class": "TMenuItem",
+                "name": "MenuViewZoomIn",
+                "properties": {
+                  "Caption": "&Zoom In",
+                  "Hint": "Zoom in.",
+                  "OnClick": "MenuViewZoomClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuViewZoomOut",
+                "properties": {
+                  "Caption": "Zoom &Out",
+                  "Hint": "Zoom out.",
+                  "OnClick": "MenuViewZoomClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuViewZoomF",
+                "properties": {
+                  "Caption": "Zoom &Forces"
+                },
+                "children": [
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuViewZoomForcesIn",
+                    "properties": {
+                      "Caption": "&Zoom In",
+                      "Hint": "Draw forces larger.",
+                      "OnClick": "MenuViewZoomForcesClick"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TMenuItem",
+                    "name": "MenuViewZoomForcesOut",
+                    "properties": {
+                      "Caption": "Zoom &Out",
+                      "Hint": "Draw forces smaller.",
+                      "OnClick": "MenuViewZoomForcesClick"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep4",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuViewShowGrid",
+                "properties": {
+                  "Caption": "Show &Grid",
+                  "Checked": true,
+                  "Hint": "Show a grid to help align and bend the wire.",
+                  "OnClick": "MenuViewShowGridClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuViewSnaptoGrid",
+                "properties": {
+                  "Caption": "&Snap to Grid",
+                  "Checked": true,
+                  "Hint": "Restrict movement to 1mm and 1 degree steps.",
+                  "OnClick": "MenuViewSnaptoGridClick"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TMenuItem",
+            "name": "MenuOrtho",
+            "properties": {
+              "Caption": "&Ortho"
+            },
+            "children": [
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoStart",
+                "properties": {
+                  "Action": "ActionRun",
+                  "Caption": "&Run"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoStop",
+                "properties": {
+                  "Action": "ActionStop",
+                  "Caption": "&Stop"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep10",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoRef",
+                "properties": {
+                  "Caption": "Set as &Reference",
+                  "Hint": "Remember this as the initial position.",
+                  "OnClick": "MenuOrthoRefClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoReset",
+                "properties": {
+                  "Caption": "R&eset to Reference",
+                  "Hint": "Reset teeth to the initial position.",
+                  "OnClick": "MenuOrthoResetClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoClear",
+                "properties": {
+                  "Caption": "&Clear Reference",
+                  "Hint": "Delete initial position.",
+                  "OnClick": "MenuOrthoClearClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep11",
+                "properties": {
+                  "Caption": "-",
+                  "Visible": false
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuOrthoCapture",
+                "properties": {
+                  "Caption": "C&apture",
+                  "Hint": "Send information to capture file.",
+                  "Visible": false
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TMenuItem",
+            "name": "MenuHelp",
+            "properties": {
+              "Caption": "&Help"
+            },
+            "children": [
+              {
+                "class": "TMenuItem",
+                "name": "MenuHelpContents",
+                "properties": {
+                  "Action": "ActionHelp"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuSep3",
+                "properties": {
+                  "Caption": "-"
+                },
+                "children": []
+              },
+              {
+                "class": "TMenuItem",
+                "name": "MenuHelpAbout",
+                "properties": {
+                  "Caption": "&About...",
+                  "Hint": "Information about Tooth.",
+                  "OnClick": "MenuHelpAboutClick"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "TSaveDialog",
+        "name": "SaveDialog",
+        "properties": {
+          "DefaultExt": "txt",
+          "Filter": "Tooth files (*.txt)|*.txt|All files (*.*)|*.*",
+          "Options": [
+            "ofOverwritePrompt"
+          ],
+          "Title": "Save Tooth",
+          "Left": 384,
+          "Top": 90
+        },
+        "children": []
+      },
+      {
+        "class": "TOpenDialog",
+        "name": "OpenDialog",
+        "properties": {
+          "DefaultExt": "txt",
+          "Filter": "Tooth files (*.txt)|*.txt|All files (*.*)|*.*",
+          "Title": "Open Tooth",
+          "Left": 416,
+          "Top": 90
+        },
+        "children": []
+      },
+      {
+        "class": "TImageList",
+        "name": "ImageListMain",
+        "properties": {
+          "Left": 161,
+          "Top": 151,
+          "Bitmap": {
+            "binary_size": 42406,
+            "prefix": "494c010126002800640010001000ffffffffff10"
+          }
+        },
+        "children": []
+      },
+      {
+        "class": "TActionList",
+        "name": "ActionListMain",
+        "properties": {
+          "Images": "ImageListMain",
+          "Left": 212,
+          "Top": 151
+        },
+        "children": [
+          {
+            "class": "TAction",
+            "name": "ActionNew",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&New...",
+              "Hint": "New Radiograph|Enter a new radiograph.",
+              "ImageIndex": 16,
+              "OnExecute": "ActionNewExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionOpen",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Open...",
+              "Enabled": false,
+              "Hint": "Open Simulation|Load a simulation from a file.",
+              "ImageIndex": 17,
+              "OnExecute": "ActionOpenExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionSave",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Save",
+              "Enabled": false,
+              "Hint": "Save Radiograph|Save the current radiograph to a file.",
+              "ImageIndex": 18,
+              "OnExecute": "ActionSaveExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionQuickPrint",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Print",
+              "Hint": "Print Radiograph|Print the current radiograph.",
+              "ImageIndex": 24
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionPrint",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Print...",
+              "Hint": "Print Radiograph|Print the current radiograph.",
+              "ImageIndex": 24
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionZoom",
+            "properties": {
+              "Tag": 1,
+              "Category": "ActTools",
+              "Caption": "ActionZoom",
+              "Hint": "Zoom In/Out|Zoom in (Left Button) / Zoom out (Right Button).",
+              "ImageIndex": 22,
+              "OnExecute": "SelectTool"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionChooser",
+            "properties": {
+              "Category": "ActTools",
+              "Caption": "ActionChooser",
+              "Hint": "Select|Select",
+              "ImageIndex": 0,
+              "OnExecute": "SelectTool"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionTranslate",
+            "properties": {
+              "Tag": 2,
+              "Category": "ActTools",
+              "Caption": "ActionTranslate",
+              "Hint": "Translate|Translate.",
+              "ImageIndex": 1
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionRotCenter",
+            "properties": {
+              "Tag": 3,
+              "Category": "ActTools",
+              "Caption": "ActionRotCenter",
+              "Hint": "Rotation Center|Click to set the Rotation Center.",
+              "ImageIndex": 2
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionRotate",
+            "properties": {
+              "Tag": 4,
+              "Category": "ActTools",
+              "Caption": "ActionRotate",
+              "Checked": true,
+              "Hint": "Rotate|Rotate selected areas and points.",
+              "ImageIndex": 3
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionUndoLast",
+            "properties": {
+              "Category": "ActEdit",
+              "Caption": "&Undo...",
+              "Hint": "Undo|Undo last movement.",
+              "ImageIndex": 13
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionRedoLast",
+            "properties": {
+              "Category": "ActEdit",
+              "Caption": "&Redo...",
+              "Hint": "Redo|Repeat last movement.",
+              "ImageIndex": 14
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionNone",
+            "properties": {
+              "Tag": 8,
+              "Category": "ActTools",
+              "Caption": "ActionNone",
+              "Checked": true
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionClose",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Remove",
+              "Hint": "Remove|Remove the selected item.",
+              "ImageIndex": 27,
+              "ShortCut": 46,
+              "OnExecute": "ActionCloseExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionProperties",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Properties",
+              "Hint": "Properties|Change the properties of the selected item.",
+              "ImageIndex": 20,
+              "OnExecute": "ActionPropertiesExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionRun",
+            "properties": {
+              "Category": "ActRun",
+              "Caption": "ActionRun",
+              "Hint": "Run|Start orthodontic movement.",
+              "ImageIndex": 36,
+              "OnExecute": "ActionRunExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionStop",
+            "properties": {
+              "Category": "ActRun",
+              "Caption": "ActionStop",
+              "Hint": "Stop|Stop orthodontic movement.",
+              "ImageIndex": 37,
+              "OnExecute": "ActionStopExecute"
+            },
+            "children": []
+          },
+          {
+            "class": "TAction",
+            "name": "ActionHelp",
+            "properties": {
+              "Category": "ActFile",
+              "Caption": "&Contents",
+              "Enabled": false,
+              "ImageIndex": 26,
+              "OnExecute": "ActionHelpExecute"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "class": "TImageList",
+        "name": "ImageListMarkers",
+        "properties": {
+          "ColorDepth": "cd32Bit",
+          "Height": 44,
+          "Width": 44,
+          "Left": 120,
+          "Top": 224,
+          "Bitmap": {
+            "binary_size": 128294,
+            "prefix": "494c01010c009400cc002c002c00ffffffff2110"
+          }
+        },
+        "children": []
+      },
+      {
+        "class": "TImageList",
+        "name": "ImageListWireMarkers",
+        "properties": {
+          "ColorDepth": "cd32Bit",
+          "Height": 22,
+          "Width": 22,
+          "Left": 72,
+          "Top": 224,
+          "Bitmap": {
+            "binary_size": 16182,
+            "prefix": "494c0101060008003c0016001600ffffffff2110"
+          }
+        },
+        "children": []
+      }
+    ]
+  },
+  "TTOOTHINFDLG": {
+    "class": "TToothInfDlg",
+    "name": "ToothInfDlg",
+    "properties": {
+      "Left": 302,
+      "Top": 240,
+      "BorderStyle": "bsDialog",
+      "Caption": "Tooth Info",
+      "ClientHeight": 373,
+      "ClientWidth": 418,
+      "Color": "clBtnFace",
+      "Font.Charset": "DEFAULT_CHARSET",
+      "Font.Color": "clWindowText",
+      "Font.Height": -12,
+      "Font.Name": "MS Sans Serif",
+      "Font.Style": [],
+      "OldCreateOrder": true,
+      "Position": "poMainFormCenter",
+      "ShowHint": true,
+      "OnCreate": "FormCreate",
+      "OnShow": "FormShow",
+      "PixelsPerInch": 96,
+      "TextHeight": 13
+    },
+    "children": [
+      {
+        "class": "TPageControl",
+        "name": "PageControl1",
+        "properties": {
+          "Left": 0,
+          "Top": 20,
+          "Width": 418,
+          "Height": 353,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "ActivePage": "ToothPage",
+          "Align": "alClient",
+          "TabOrder": 1
+        },
+        "children": [
+          {
+            "class": "TTabSheet",
+            "name": "ToothPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "Tooth"
+            },
+            "children": [
+              {
+                "class": "TLabel",
+                "name": "AnatomicRoot",
+                "properties": {
+                  "Left": 38,
+                  "Top": 206,
+                  "Width": 109,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Anatomic Root Length:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "FunctRoot",
+                "properties": {
+                  "Left": 38,
+                  "Top": 226,
+                  "Width": 114,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Functional Root Length:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "FunctArea",
+                "properties": {
+                  "Left": 38,
+                  "Top": 245,
+                  "Width": 103,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Functional Root Area:"
+                },
+                "children": []
+              },
+              {
+                "class": "TBevel",
+                "name": "Bevel1",
+                "properties": {
+                  "Left": 182,
+                  "Top": 13,
+                  "Width": 131,
+                  "Height": 137,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "TipLbl",
+                "properties": {
+                  "Left": 195,
+                  "Top": 26,
+                  "Width": 53,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "A&ngulation:",
+                  "FocusControl": "Tip"
+                },
+                "children": []
+              },
+              {
+                "class": "TPanel",
+                "name": "PanelDisplay",
+                "properties": {
+                  "Left": 9,
+                  "Top": 7,
+                  "Width": 162,
+                  "Height": 162,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "BevelInner": "bvLowered",
+                  "BevelOuter": "bvNone",
+                  "BorderStyle": "bsSingle",
+                  "Color": "clWindow",
+                  "TabOrder": 0
+                },
+                "children": [
+                  {
+                    "class": "TPaintBox",
+                    "name": "Display",
+                    "properties": {
+                      "Left": 1,
+                      "Top": 1,
+                      "Width": 156,
+                      "Height": 156,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Align": "alClient",
+                      "Color": "clBtnFace",
+                      "ParentColor": false,
+                      "OnPaint": "DisplayPaint",
+                      "ExplicitWidth": 157,
+                      "ExplicitHeight": 157
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TScrollBar",
+                "name": "ScrollBarRoot",
+                "properties": {
+                  "Left": 15,
+                  "Top": 176,
+                  "Width": 14,
+                  "Height": 117,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Kind": "sbVertical",
+                  "PageSize": 0,
+                  "TabOrder": 1,
+                  "OnChange": "ScrollBarRootChange"
+                },
+                "children": []
+              },
+              {
+                "class": "TCheckBox",
+                "name": "Ankylosed",
+                "properties": {
+                  "Left": 180,
+                  "Top": 157,
+                  "Width": 79,
+                  "Height": 14,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "An&kylosed",
+                  "TabOrder": 2,
+                  "OnClick": "AnkylosedClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TButton",
+                "name": "ApplyBut",
+                "properties": {
+                  "Left": 215,
+                  "Top": 124,
+                  "Width": 72,
+                  "Height": 20,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "&Apply",
+                  "TabOrder": 3,
+                  "OnClick": "ApplyButClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TGroupBox",
+                "name": "GroupBoxMove",
+                "properties": {
+                  "Left": 195,
+                  "Top": 46,
+                  "Width": 105,
+                  "Height": 65,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Move",
+                  "TabOrder": 4
+                },
+                "children": [
+                  {
+                    "class": "TLabel",
+                    "name": "dxLbl",
+                    "properties": {
+                      "Left": 33,
+                      "Top": 20,
+                      "Width": 14,
+                      "Height": 13,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "d&x:",
+                      "FocusControl": "dx"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TLabel",
+                    "name": "dyLbl",
+                    "properties": {
+                      "Left": 33,
+                      "Top": 46,
+                      "Width": 14,
+                      "Height": 13,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "d&y:",
+                      "FocusControl": "dy"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TEdit",
+                    "name": "dx",
+                    "properties": {
+                      "Left": 52,
+                      "Top": 17,
+                      "Width": 44,
+                      "Height": 21,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "TabOrder": 0,
+                      "Text": "dx"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TEdit",
+                    "name": "dy",
+                    "properties": {
+                      "Left": 52,
+                      "Top": 43,
+                      "Width": 44,
+                      "Height": 21,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "TabOrder": 1,
+                      "Text": "dy"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TEdit",
+                "name": "Tip",
+                "properties": {
+                  "Left": 254,
+                  "Top": 24,
+                  "Width": 43,
+                  "Height": 21,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "TabOrder": 5,
+                  "Text": "Tip"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TTabSheet",
+            "name": "PerioPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "Perio",
+              "ImageIndex": 1,
+              "ExplicitLeft": 0,
+              "ExplicitTop": 0,
+              "ExplicitWidth": 0,
+              "ExplicitHeight": 0
+            },
+            "children": [
+              {
+                "class": "TLabel",
+                "name": "Label2",
+                "properties": {
+                  "Left": 9,
+                  "Top": 170,
+                  "Width": 15,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "0.0"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "Label1",
+                "properties": {
+                  "Left": 71,
+                  "Top": 176,
+                  "Width": 42,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "gf / mm2"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "Label3",
+                "properties": {
+                  "Left": 150,
+                  "Top": 170,
+                  "Width": 21,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "10.0"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "Label4",
+                "properties": {
+                  "Left": 182,
+                  "Top": 65,
+                  "Width": 113,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Pre-defined Responses:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "TotalForce",
+                "properties": {
+                  "Left": 12,
+                  "Top": 202,
+                  "Width": 51,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "TotalForce"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "TotalForceX",
+                "properties": {
+                  "Left": 32,
+                  "Top": 222,
+                  "Width": 58,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "TotalForceX"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "TotalForceY",
+                "properties": {
+                  "Left": 32,
+                  "Top": 241,
+                  "Width": 58,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "TotalForceY"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "TotalMoment",
+                "properties": {
+                  "Left": 12,
+                  "Top": 261,
+                  "Width": 51,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "TotalForce"
+                },
+                "children": []
+              },
+              {
+                "class": "TPanel",
+                "name": "PanelPerioDisplay",
+                "properties": {
+                  "Left": 9,
+                  "Top": 7,
+                  "Width": 162,
+                  "Height": 162,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "BevelInner": "bvLowered",
+                  "BevelOuter": "bvNone",
+                  "BorderStyle": "bsSingle",
+                  "Color": "clWindow",
+                  "TabOrder": 0
+                },
+                "children": [
+                  {
+                    "class": "TPaintBox",
+                    "name": "PerioDisplay",
+                    "properties": {
+                      "Left": 1,
+                      "Top": 1,
+                      "Width": 156,
+                      "Height": 156,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Align": "alClient",
+                      "ParentColor": false,
+                      "OnMouseDown": "PerioDisplayMouseDown",
+                      "OnMouseMove": "PerioDisplayMouseMove",
+                      "OnMouseUp": "PerioDisplayMouseUp",
+                      "OnPaint": "PerioDisplayPaint",
+                      "ExplicitWidth": 157,
+                      "ExplicitHeight": 157
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TButton",
+                "name": "ButSaveResponce",
+                "properties": {
+                  "Left": 182,
+                  "Top": 117,
+                  "Width": 79,
+                  "Height": 20,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Save As...",
+                  "TabOrder": 1,
+                  "OnClick": "ButSaveResponceClick"
+                },
+                "children": []
+              },
+              {
+                "class": "TComboBox",
+                "name": "ResponceCB",
+                "properties": {
+                  "Left": 182,
+                  "Top": 85,
+                  "Width": 124,
+                  "Height": 21,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Style": "csDropDownList",
+                  "TabOrder": 2,
+                  "OnChange": "ResponceCBChange"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "TPanel",
+        "name": "PanelTop",
+        "properties": {
+          "Left": 0,
+          "Top": 0,
+          "Width": 418,
+          "Height": 20,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "Align": "alTop",
+          "Alignment": "taLeftJustify",
+          "BevelInner": "bvLowered",
+          "BevelOuter": "bvNone",
+          "Caption": "PanelTop",
+          "TabOrder": 0
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "OKBut",
+        "properties": {
+          "Left": 323,
+          "Top": 51,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Close",
+          "ModalResult": 1,
+          "TabOrder": 2
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "HelpBut",
+        "properties": {
+          "Left": 323,
+          "Top": 82,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Help",
+          "TabOrder": 3
+        },
+        "children": []
+      }
+    ]
+  },
+  "TTOOTHOPTIONS": {
+    "class": "TToothOptions",
+    "name": "ToothOptions",
+    "properties": {
+      "Left": 479,
+      "Top": 148,
+      "BorderStyle": "bsDialog",
+      "Caption": "Loop Options",
+      "ClientHeight": 357,
+      "ClientWidth": 354,
+      "Color": "clBtnFace",
+      "Font.Charset": "DEFAULT_CHARSET",
+      "Font.Color": "clBlack",
+      "Font.Height": -12,
+      "Font.Name": "MS Sans Serif",
+      "Font.Style": [],
+      "OldCreateOrder": true,
+      "Position": "poMainFormCenter",
+      "ShowHint": true,
+      "OnCreate": "FormCreate",
+      "PixelsPerInch": 96,
+      "TextHeight": 13
+    },
+    "children": [
+      {
+        "class": "TPageControl",
+        "name": "PageControl1",
+        "properties": {
+          "Left": 0,
+          "Top": 0,
+          "Width": 354,
+          "Height": 357,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "ActivePage": "GeneralPage",
+          "Align": "alClient",
+          "TabOrder": 0
+        },
+        "children": [
+          {
+            "class": "TTabSheet",
+            "name": "GeneralPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "General",
+              "ImageIndex": 2
+            },
+            "children": [
+              {
+                "class": "TCheckBox",
+                "name": "RememberRectCB",
+                "properties": {
+                  "Left": 8,
+                  "Top": 12,
+                  "Width": 223,
+                  "Height": 18,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Remember Window Position",
+                  "TabOrder": 0
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TTabSheet",
+            "name": "ViewPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "&View",
+              "ExplicitLeft": 0,
+              "ExplicitTop": 25,
+              "ExplicitWidth": 0,
+              "ExplicitHeight": 344
+            },
+            "children": [
+              {
+                "class": "TGroupBox",
+                "name": "ViewForceGroup",
+                "properties": {
+                  "Left": 173,
+                  "Top": 156,
+                  "Width": 156,
+                  "Height": 61,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "View Forces",
+                  "TabOrder": 0
+                },
+                "children": [
+                  {
+                    "class": "TCheckBox",
+                    "name": "ViewF",
+                    "properties": {
+                      "Left": 10,
+                      "Top": 19,
+                      "Width": 79,
+                      "Height": 14,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "&Forces",
+                      "TabOrder": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TCheckBox",
+                    "name": "ViewM",
+                    "properties": {
+                      "Left": 10,
+                      "Top": 39,
+                      "Width": 79,
+                      "Height": 13,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "&Moments",
+                      "TabOrder": 1
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TRadioGroup",
+                "name": "ForcesOn",
+                "properties": {
+                  "Left": 8,
+                  "Top": 156,
+                  "Width": 153,
+                  "Height": 61,
+                  "Hint": "Show forces and moments##  acting on the teeth##  acting on the wires.|",
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Forces &Applied On",
+                  "ItemIndex": 0,
+                  "Items.Strings": [
+                    "Teeth",
+                    "Wires"
+                  ],
+                  "TabOrder": 1
+                },
+                "children": []
+              },
+              {
+                "class": "TCheckBox",
+                "name": "ViewGrid",
+                "properties": {
+                  "Left": 8,
+                  "Top": 12,
+                  "Width": 129,
+                  "Height": 18,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "View &Grid",
+                  "TabOrder": 2
+                },
+                "children": []
+              },
+              {
+                "class": "TCheckBox",
+                "name": "SnapGrid",
+                "properties": {
+                  "Left": 8,
+                  "Top": 120,
+                  "Width": 129,
+                  "Height": 18,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "S&nap to Grid",
+                  "TabOrder": 3
+                },
+                "children": []
+              },
+              {
+                "class": "TRadioGroup",
+                "name": "GridDensity",
+                "properties": {
+                  "Left": 21,
+                  "Top": 34,
+                  "Width": 116,
+                  "Height": 82,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Grid &Density",
+                  "ItemIndex": 2,
+                  "Items.Strings": [
+                    "10 mm",
+                    "5 mm",
+                    "2 mm"
+                  ],
+                  "TabOrder": 4
+                },
+                "children": []
+              },
+              {
+                "class": "TGroupBox",
+                "name": "DrawForceGB",
+                "properties": {
+                  "Left": 8,
+                  "Top": 221,
+                  "Width": 235,
+                  "Height": 79,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Draw Forces",
+                  "TabOrder": 5
+                },
+                "children": [
+                  {
+                    "class": "TCheckBox",
+                    "name": "DrawFCRes",
+                    "properties": {
+                      "Left": 10,
+                      "Top": 16,
+                      "Width": 196,
+                      "Height": 17,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "At Center of Resistance",
+                      "TabOrder": 0
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TCheckBox",
+                    "name": "DrawFAtt",
+                    "properties": {
+                      "Left": 10,
+                      "Top": 36,
+                      "Width": 196,
+                      "Height": 17,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "At Attachments",
+                      "TabOrder": 1
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TCheckBox",
+                    "name": "DrawFBr",
+                    "properties": {
+                      "Left": 10,
+                      "Top": 55,
+                      "Width": 196,
+                      "Height": 17,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Caption": "At Brackets",
+                      "TabOrder": 2
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "class": "TCheckBox",
+                "name": "NoWidthCB",
+                "properties": {
+                  "Left": 8,
+                  "Top": 304,
+                  "Width": 163,
+                  "Height": 17,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Zero Width Brackets",
+                  "TabOrder": 6
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "class": "TTabSheet",
+            "name": "CalcPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "&Calculation",
+              "ImageIndex": 1,
+              "ExplicitLeft": 0,
+              "ExplicitTop": 25,
+              "ExplicitWidth": 0,
+              "ExplicitHeight": 344
+            },
+            "children": [
+              {
+                "class": "TCheckBox",
+                "name": "AutoStop",
+                "properties": {
+                  "Left": 8,
+                  "Top": 12,
+                  "Width": 79,
+                  "Height": 18,
+                  "Hint": "Automatically stop wire activation##when tolerance is met.|",
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "&Auto Stop",
+                  "TabOrder": 0
+                },
+                "children": []
+              },
+              {
+                "class": "TGroupBox",
+                "name": "ThrGroupBox",
+                "properties": {
+                  "Left": 14,
+                  "Top": 38,
+                  "Width": 187,
+                  "Height": 74,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "Threshold",
+                  "TabOrder": 1
+                },
+                "children": [
+                  {
+                    "class": "TLabel",
+                    "name": "ThrForceLbl",
+                    "properties": {
+                      "Left": 78,
+                      "Top": 23,
+                      "Width": 48,
+                      "Height": 13,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Alignment": "taRightJustify",
+                      "Caption": "&Force (gf):",
+                      "FocusControl": "ThrForce"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TLabel",
+                    "name": "ThrMomLbl",
+                    "properties": {
+                      "Left": 48,
+                      "Top": 49,
+                      "Width": 78,
+                      "Height": 13,
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "Alignment": "taRightJustify",
+                      "Caption": "&Moment (gf.mm):",
+                      "FocusControl": "ThrMom"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TEdit",
+                    "name": "ThrForce",
+                    "properties": {
+                      "Left": 130,
+                      "Top": 20,
+                      "Width": 46,
+                      "Height": 17,
+                      "Hint": "Stop tooth movement when##forces and moments are below the threshold|",
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "AutoSize": false,
+                      "Ctl3D": true,
+                      "ParentCtl3D": false,
+                      "TabOrder": 0,
+                      "Text": "1"
+                    },
+                    "children": []
+                  },
+                  {
+                    "class": "TEdit",
+                    "name": "ThrMom",
+                    "properties": {
+                      "Left": 130,
+                      "Top": 45,
+                      "Width": 46,
+                      "Height": 17,
+                      "Hint": "Stop tooth movement when##forces and moments are below the threshold|",
+                      "Margins.Left": 2,
+                      "Margins.Top": 2,
+                      "Margins.Right": 2,
+                      "Margins.Bottom": 2,
+                      "AutoSize": false,
+                      "TabOrder": 1,
+                      "Text": "1"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "TButton",
+        "name": "OKBut",
+        "properties": {
+          "Left": 254,
+          "Top": 33,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "OK",
+          "ModalResult": 1,
+          "TabOrder": 1
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "HelpBut",
+        "properties": {
+          "Left": 254,
+          "Top": 95,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Help",
+          "TabOrder": 2,
+          "OnClick": "HelpButClick"
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "CancelBut",
+        "properties": {
+          "Left": 254,
+          "Top": 64,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Cancel",
+          "ModalResult": 2,
+          "TabOrder": 3
+        },
+        "children": []
+      }
+    ]
+  },
+  "TWIREINFO": {
+    "class": "TWireInfo",
+    "name": "WireInfo",
+    "properties": {
+      "Left": 352,
+      "Top": 477,
+      "BorderStyle": "bsDialog",
+      "Caption": "Wire",
+      "ClientHeight": 238,
+      "ClientWidth": 378,
+      "Color": "clBtnFace",
+      "Font.Charset": "DEFAULT_CHARSET",
+      "Font.Color": "clBlack",
+      "Font.Height": -12,
+      "Font.Name": "MS Sans Serif",
+      "Font.Style": [],
+      "OldCreateOrder": true,
+      "Position": "poMainFormCenter",
+      "ShowHint": true,
+      "OnCreate": "FormCreate",
+      "OnShow": "FormShow",
+      "PixelsPerInch": 96,
+      "TextHeight": 13
+    },
+    "children": [
+      {
+        "class": "TPageControl",
+        "name": "PageControl1",
+        "properties": {
+          "Left": 0,
+          "Top": 0,
+          "Width": 378,
+          "Height": 238,
+          "Margins.Left": 2,
+          "Margins.Top": 2,
+          "Margins.Right": 2,
+          "Margins.Bottom": 2,
+          "ActivePage": "InfoPage",
+          "Align": "alClient",
+          "TabOrder": 0
+        },
+        "children": [
+          {
+            "class": "TTabSheet",
+            "name": "InfoPage",
+            "properties": {
+              "Margins.Left": 2,
+              "Margins.Top": 2,
+              "Margins.Right": 2,
+              "Margins.Bottom": 2,
+              "Caption": "General"
+            },
+            "children": [
+              {
+                "class": "TLabel",
+                "name": "LengthLbl",
+                "properties": {
+                  "Left": 18,
+                  "Top": 20,
+                  "Width": 88,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Total Wire Length:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "Length",
+                "properties": {
+                  "Left": 107,
+                  "Top": 20,
+                  "Width": 18,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "152"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "Force",
+                "properties": {
+                  "Left": 107,
+                  "Top": 39,
+                  "Width": 21,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "15.3"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "ForceLbl",
+                "properties": {
+                  "Left": 76,
+                  "Top": 39,
+                  "Width": 30,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Force:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "MomentA",
+                "properties": {
+                  "Left": 107,
+                  "Top": 59,
+                  "Width": 21,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "15.3"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "MomentALbl",
+                "properties": {
+                  "Left": 55,
+                  "Top": 59,
+                  "Width": 51,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Moment A:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "MomentB",
+                "properties": {
+                  "Left": 107,
+                  "Top": 78,
+                  "Width": 21,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "15.3"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "MomentBLbl",
+                "properties": {
+                  "Left": 55,
+                  "Top": 78,
+                  "Width": 51,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Moment B:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "AngleRatio",
+                "properties": {
+                  "Left": 107,
+                  "Top": 111,
+                  "Width": 21,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "15.3"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "AngleRatioLbl",
+                "properties": {
+                  "Left": 48,
+                  "Top": 111,
+                  "Width": 58,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Angle Ratio:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "BurstoneClass",
+                "properties": {
+                  "Left": 107,
+                  "Top": 130,
+                  "Width": 28,
+                  "Height": 18,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Caption": "15.3",
+                  "Font.Charset": "DEFAULT_CHARSET",
+                  "Font.Color": "clBlack",
+                  "Font.Height": -15,
+                  "Font.Name": "Arial",
+                  "Font.Style": [
+                    "fsBold"
+                  ],
+                  "ParentFont": false
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "BurstoneClassLbl",
+                "properties": {
+                  "Left": 33,
+                  "Top": 130,
+                  "Width": 73,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Burstone Class:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "MaterialLbl",
+                "properties": {
+                  "Left": 66,
+                  "Top": 163,
+                  "Width": 40,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Material:"
+                },
+                "children": []
+              },
+              {
+                "class": "TLabel",
+                "name": "SizeLbl",
+                "properties": {
+                  "Left": 83,
+                  "Top": 189,
+                  "Width": 23,
+                  "Height": 13,
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Alignment": "taRightJustify",
+                  "Caption": "Size:"
+                },
+                "children": []
+              },
+              {
+                "class": "TComboBox",
+                "name": "WireSizeCB",
+                "properties": {
+                  "Left": 107,
+                  "Top": 185,
+                  "Width": 99,
+                  "Height": 21,
+                  "Hint": "Wire Size",
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Style": "csDropDownList",
+                  "TabOrder": 0,
+                  "TabStop": false,
+                  "OnChange": "WireSizeCBChange"
+                },
+                "children": []
+              },
+              {
+                "class": "TComboBox",
+                "name": "WireMaterialCB",
+                "properties": {
+                  "Left": 107,
+                  "Top": 159,
+                  "Width": 99,
+                  "Height": 21,
+                  "Hint": "Wire Material",
+                  "Margins.Left": 2,
+                  "Margins.Top": 2,
+                  "Margins.Right": 2,
+                  "Margins.Bottom": 2,
+                  "Style": "csDropDownList",
+                  "TabOrder": 1,
+                  "TabStop": false,
+                  "OnChange": "WireMaterialCBChange"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "TButton",
+        "name": "OKBut",
+        "properties": {
+          "Left": 280,
+          "Top": 28,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Close",
+          "ModalResult": 1,
+          "TabOrder": 1
+        },
+        "children": []
+      },
+      {
+        "class": "TButton",
+        "name": "HelpBut",
+        "properties": {
+          "Left": 280,
+          "Top": 59,
+          "Width": 87,
+          "Height": 25,
+          "Caption": "Help",
+          "TabOrder": 2,
+          "OnClick": "HelpButClick"
+        },
+        "children": []
+      }
+    ]
+  }
+}
